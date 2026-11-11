@@ -1,6 +1,6 @@
-import {Text,View } from 'react-natve';
-const PlannerScreen=()=>{
-  return(
+import { Text, View } from "react-native";
+const PlannerScreen = () => {
+  return (
     <View>
       <Text>PlannerScreen</Text>
     </View>
