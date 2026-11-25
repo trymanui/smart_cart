@@ -37,15 +37,7 @@
       "@clerk/expo",
       "expo-secure-store",
       "expo-image",
-      "expo-web-browser",
-      [
-        "@sentry/react-native/expo",
-        {
-          "url": "https://sentry.io/",
-          "project": "grocify",
-          "organization": "smartcart-pk"
-        }
-      ]
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
