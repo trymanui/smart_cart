@@ -1,3 +1,4 @@
+
 import { useAuth } from "@clerk/expo";
 import { Redirect } from "expo-router";
 import { NativeTabs } from "expo-router/unstable-native-tabs";
@@ -6,12 +7,18 @@ import { useColorScheme } from "nativewind";
 export default function TabsLayout() {
   const { isSignedIn, isLoaded } = useAuth();
   const { colorScheme } = useColorScheme();
+
   const isDark = colorScheme === "dark";
-  const tabTintColor = isDark ? "hsl(142 70% 54%)" : "hsl(147 75% 33%)";
+  const tabTintColor = isDark
+    ? "hsl(142 70% 54%)"
+    : "hsl(147 75% 33%)";
 
   if (!isLoaded) return null;
 
-  if (isSignedIn) return <Redirect href={"/"} />;
+  // Redirect users who are NOT signed in to login
+  if (!isSignedIn) {
+    return <Redirect href="/(auth)/sign-in" />;
+  }
 
   return (
     <NativeTabs tintColor={tabTintColor}>
